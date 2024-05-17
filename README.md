@@ -1,9 +1,18 @@
 # EthersEXP: Exploring the Ethers.js Library
 
 ## Overview
-EthersEXP is a comprehensive project that explores the essential concepts and skills required to work with the Ethers.js library. It aims to provide a solid foundation for developers looking to dive into the world of Ethereum development using Ethers.js.
+**EthersEXP** is a comprehensive project that explores the essential concepts and skills required to work with the Ethers.js library. It aims to provide a solid foundation for developers looking to dive into the world of Ethereum development using Ethers.js.
+
+## Tech Stack
+The **EthersEXP** project utilizes the following technologies and tools:
+
+- [Ethers.js](https://docs.ethers.org/v5/): A lightweight and modular Ethereum library that provides a robust set of features for interacting with the Ethereum Blockchain network.
+- [Node.js](https://nodejs.org/en/): A JavaScript runtime environment that allows developers to execute JavaScript code outside of a web browser, enabling the creation of command-line tools and server-side applications.
+- [Infura](https://www.infura.io/): A Web3 backend and Infrastructure-as-a-Service (IaaS) provider that offers a range of services and tools for blockchain developers, including access to Ethereum nodes and APIs.
 
 ## Key Features
+The **EthersEXP** project delivers a range of features, including:
+
 - Detailed explanations of core Ethers.js functionalities
 - Interactive examples and code snippets covering various use cases
 - Tutorials on setting up development environments for Ethereum projects
@@ -15,7 +24,8 @@ EthersEXP is a comprehensive project that explores the essential concepts and sk
   - Handling contract events and streams
 
 ## Project Structure
-The project is organized as follows:
+The **EthersEXP** project is organized as follows:
+
 ```markdown
 EthersEXP/
 ├── README.md
@@ -50,10 +60,10 @@ npm install
 npm start
 ```
 
-4. Open your browser and navigate to `http://localhost:3000` to access the EthersEXP project.
+4. Open your browser and navigate to `http://localhost:3000` to access the **EthersEXP** project.
 
 ## Contributing
-We welcome contributions from the community! If you'd like to contribute to EthersEXP, please follow these steps:
+We welcome contributions from the community! If you'd like to contribute to **EthersEXP**, please follow these steps:
 
 1. Fork the repository
 2. Create a new branch for your feature or bug fix
@@ -61,11 +71,10 @@ We welcome contributions from the community! If you'd like to contribute to Ethe
 4. Submit a pull request
 
 ## License
-EthersEXP is released under the [MIT License](LICENSE).
+**EthersEXP** is released under the [MIT License](LICENSE).
 
 ## Author
 Emeka Emodi
 
 ## Contact
 For any questions or inquiries, please contact me at [emodiemeka@gmail.com](mailto:emodiemeka@gmail.com).
-
