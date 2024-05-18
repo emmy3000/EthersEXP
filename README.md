@@ -28,6 +28,7 @@ The **EthersEXP** project is organized as follows:
 
 ```markdown
 EthersEXP/
+├── .env
 ├── README.md
 ├── .gitignore
 ├── examples/
