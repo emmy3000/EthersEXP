@@ -97,7 +97,7 @@ npm start
 ```
 This will start the development server, and you can access the **EthersEXP** project by opening your browser and navigating to *http://localhost:3000*.
 
--  By following these steps, you'll have a fully set up development environment for the **EthersEXP** project, with secure access to the Ethereum node and its API credentials.
+By following these steps, you'll have a fully set up development environment for the **EthersEXP** project, with secure access to the Ethereum node and its API credentials.
 
 ## Contributing
 We welcome contributions from the community! If you'd like to contribute to **EthersEXP**, please follow these steps:
