@@ -46,22 +46,58 @@ EthersEXP/
 The `examples/` directory contains a collection of Ethers.js-based code samples that demonstrate the various features and functionalities covered in the project.
 
 ## Getting Started
-1. Clone the repository:
+
+### 1. Clone the Repository
+Begin by cloning the **EthersEXP** repository into a local environment where you'll be developing the project:
+
 ```shell
 git clone https://github.com/emmy3000/EthersEXP.git
 ```
 
-2. Install the required dependencies:
+### 2. Install Dependencies
+Install the required dependencies defined in the `package.json` file using the following command:
+
 ```shell
 npm install
 ```
+This will ensure that all the necessary packages and libraries are available for the project's development.
 
-3. Start the development server:
+### 3. Set Up an Ethereum Node
+To interact with the Ethereum blockchain, you'll need to set up a node. You can use a reputable open-source Web3 IaaS platform provider like Infura to simplify this process:
+ - **Create an Infura Account**: Sign up for a free personal account on the [Infura website](https://www.infura.io/).
+ - **Set Up an Ethereum Node**: Use Infura's platform to create a simple Ethereum node for development and testing purposes.
+ - **Obtain API Credentials**: After setting up the node, you'll be provided with unique API credentials (API Key, API Secret Key, and API Endpoint) in the "API Keys" section of your Infura dashboard.
+
+**Note:** It's crucial to keep these API credentials secure and never share them publicly. Store them in a private, highly-secured location, accessible only to you.
+
+### 4. Securely Store API Credentials
+To protect your sensitive API credentials from being exposed in the codebase, store them in a `.env` file. Create a `.env` file in the project's root directory and add the following variables:
+
+```shell
+# Store API credentials as environment variables.
+ETH_NODE_API_KEY=***your_api_key_here***
+ETH_NODE_API_SECRET_KEY=***your_api_secret_key_here***
+ETH_NODE_API_ENDPOINT=***your_api_active_endpoint_here***
+```
+**Important:** Ensure that the `.env` file is excluded from your project's version control by adding it to the `.gitignore` file. This will prevent the API credentials from being accidentally committed to the remote repository.
+
+### 5. Install the dotenv Package
+To easily access the environment variables stored in the `.env` file, install the `dotenv` package using the following command:
+
+```shell
+npm install dotenv
+```
+This package will load the environment variables from the `.env` file into the `process.env` global object, making them available throughout your project.
+
+### 6. Start the Development Server
+Finally, start the development server with the following command:
+
 ```shell
 npm start
 ```
+This will start the development server, and you can access the **EthersEXP** project by opening your browser and navigating to *http://localhost:3000*.
 
-4. Open your browser and navigate to `http://localhost:3000` to access the **EthersEXP** project.
+-  By following these steps, you'll have a fully set up development environment for the **EthersEXP** project, with secure access to the Ethereum node and its API credentials.
 
 ## Contributing
 We welcome contributions from the community! If you'd like to contribute to **EthersEXP**, please follow these steps:
