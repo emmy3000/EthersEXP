@@ -23,6 +23,26 @@ The **EthersEXP** project delivers a range of features, including:
   - Querying and inspecting Ethereum blocks and transactions
   - Handling contract events and streams
 
+## Project Set-up and Dependencies
+To kickstart the **EthersEXP** project, the base configuration requires the installation of the Ethers.js library, which is a widely-used Ethereum API library. This essential dependency provides the necessary functionality to interact with the Ethereum blockchain, allowing for seamless development of Ethereum-based applications.
+
+```JSON
+{
+  "name": "ethers_examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ethers": "^5.5.4"
+  }
+}
+```
+
 ## Project Structure
 The **EthersEXP** project is organized as follows:
 
