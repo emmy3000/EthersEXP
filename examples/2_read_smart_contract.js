@@ -12,7 +12,7 @@ const provider = new ethers.providers.JsonRpcProvider(
   process.env.ETHCONNECT_API_ENDPOINT
 );
 
-// DAI Smart Contract's ABI
+// Define the DAI Smart Contract's ABI
 const ERC20_ABI = [
   'function name() view returns (string)',
   'function symbol() view returns (string)',
@@ -32,12 +32,13 @@ const main = async () => {
   const symbol = await contract.symbol();
   const totalSupply = await contract.totalSupply();
 
+  // Print the DAI Contract's name, symbol, and total supply.
   console.log(
-    `\n\x1b[1m\x1b[36mReading from \x1b[33m${address}\x1b[0m\x1b[36m:\x1b[0m`
+    `\n\n\x1b[1m\x1b[36mReading from \x1b[33m${address}\x1b[0m\x1b[36m:\x1b[0m`
   );
-  console.log(`\x1b[32m- Name: \x1b[37m${name}\x1b[0m`);
+  console.log(`\n\x1b[32m- Name: \x1b[37m${name}\x1b[0m`);
   console.log(`\x1b[32m- Symbol: \x1b[37m${symbol}\x1b[0m`);
-  console.log(`\x1b[32m- Total Supply: \x1b[37m${totalSupply}\x1b[0m\n`);
+  console.log(`\x1b[32m- Total Supply: \x1b[37m${totalSupply}\x1b[0m\n\n`);
 };
 
 main();
