@@ -36,9 +36,17 @@ const main = async () => {
   console.log(
     `\n\x1b[1m\x1b[36mReading from \x1b[33m${address}\x1b[0m\x1b[36m:\x1b[0m`
   );
-  console.log(`\n\x1b[32m- Name: \x1b[37m${name}\x1b[0m`);
-  console.log(`\x1b[32m- Symbol: \x1b[37m${symbol}\x1b[0m`);
-  console.log(`\x1b[32m- Total Supply: \x1b[37m${totalSupply}\x1b[0m\n`);
+  console.log(`\n\x1b[32m  Name: \x1b[37m${name}\x1b[0m`);
+  console.log(`\x1b[32m  Symbol: \x1b[37m${symbol}\x1b[0m`);
+  console.log(`\x1b[32m  Total Supply: \x1b[37m${totalSupply}\x1b[0m\n`);
+
+  // Retrieve the balance of a smart contract.
+  const balance = await contract.balanceOf('0x6c6Bc977E13Df9b0de53b251522280BB72383700');
+  const balanceInEther = ethers.utils.formatEther(balance);
+
+  // Print the balance in their unit format
+  console.log(`\x1b[1m\x1b[36mBalance in WEI:\x1b[0m \x1b[37m${balance}\x1b[0m`);
+  console.log(`\x1b[1m\x1b[36mBalance in ETH:\x1b[0m \x1b[37m${balanceInEther}\x1b[0m\n`);
 };
 
 main();
