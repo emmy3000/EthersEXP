@@ -23,6 +23,9 @@ const ERC20_ABI = [
 // Define the DAI Contract's address
 const address = '0x4754B849DC5164C4e09f5dE6639077438A94d205';
 
+// Instantiate a new Ethers contract
+const contract = new ethers.Contract(address, ERC20_ABI, provider);
+
 // Main app logic
 const main = async () => {
 
