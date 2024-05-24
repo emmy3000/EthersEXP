@@ -34,11 +34,11 @@ const main = async () => {
 
   // Print the DAI Contract's name, symbol, and total supply.
   console.log(
-    `\n\n\x1b[1m\x1b[36mReading from \x1b[33m${address}\x1b[0m\x1b[36m:\x1b[0m`
+    `\n\x1b[1m\x1b[36mReading from \x1b[33m${address}\x1b[0m\x1b[36m:\x1b[0m`
   );
   console.log(`\n\x1b[32m- Name: \x1b[37m${name}\x1b[0m`);
   console.log(`\x1b[32m- Symbol: \x1b[37m${symbol}\x1b[0m`);
-  console.log(`\x1b[32m- Total Supply: \x1b[37m${totalSupply}\x1b[0m\n\n`);
+  console.log(`\x1b[32m- Total Supply: \x1b[37m${totalSupply}\x1b[0m\n`);
 };
 
 main();
