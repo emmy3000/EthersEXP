@@ -21,9 +21,16 @@ const accountB = '0x455E5AA18469bC6ccEF49594645666C587A3a71B';
 // Define the sender's private key
 const privateKey = process.env.WALLET_PRIVATE_KEY;
 
+// Create a Wallet instance with the private key and a provider
+const wallet = new ethers.Wallet(privateKey, provider);
+
 // Main app logic
 const main = async () => {
-
+  // Send 0.025 Ether to accountB (ETH --> WEI)
+  const tx = await wallet.sendTransaction({
+    to: accountB,
+    value: ether.utils.parseEther('0.025'),
+  });
 };
 
 main();
