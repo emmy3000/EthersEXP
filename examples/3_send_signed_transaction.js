@@ -29,7 +29,7 @@ const main = async () => {
   // Send 0.025 Ether to accountB (ETH --> WEI)
   const tx = await wallet.sendTransaction({
     to: accountB,
-    value: ether.utils.parseEther('0.025'),
+    value: ethers.utils.parseEther('0.025'),
   });
 };
 
