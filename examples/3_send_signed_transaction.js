@@ -1,34 +1,29 @@
-const { ethers } = require("ethers");
+#!/usr/bin/env node
 
-const INFURA_ID = ''
-const provider = new ethers.providers.JsonRpcProvider(`https://kovan.infura.io/v3/${INFURA_ID}`)
+// Limit event listeners to prevent memory leaks
+require('events').EventEmitter.setMaxListeners(20);
 
-const account1 = '' // Your account address 1
-const account2 = '' // Your account address 2
+// Load env vars and Ethers.js
+require('dotenv').config();
+const { ethers } = require('ethers');
 
-const privateKey1 = '' // Private key of account 1
-const wallet = new ethers.Wallet(privateKey1, provider)
+// Initialize the Testnet JSON-RPC provider
+const provider = new ethers.providers.JsonRpcProvider(
+  process.env.ETHCONNECT_TESTNET_API_ENDPOINT
+);
 
+// Define the sender account
+const accountA = '0x8B78368464b516b93F6cB331B4515dB509aF6D06';
+
+// Define the recipient account
+const accountB = '0x455E5AA18469bC6ccEF49594645666C587A3a71B';
+
+// Define the sender's private key
+const privateKey = process.env.WALLET_PRIVATE_KEY;
+
+// Main app logic
 const main = async () => {
-    const senderBalanceBefore = await provider.getBalance(account1)
-    const recieverBalanceBefore = await provider.getBalance(account2)
 
-    console.log(`\nSender balance before: ${ethers.utils.formatEther(senderBalanceBefore)}`)
-    console.log(`reciever balance before: ${ethers.utils.formatEther(recieverBalanceBefore)}\n`)
+};
 
-    const tx = await wallet.sendTransaction({
-        to: account2,
-        value: ethers.utils.parseEther("0.025")
-    })
-
-    await tx.wait()
-    console.log(tx)
-
-    const senderBalanceAfter = await provider.getBalance(account1)
-    const recieverBalanceAfter = await provider.getBalance(account2)
-
-    console.log(`\nSender balance after: ${ethers.utils.formatEther(senderBalanceAfter)}`)
-    console.log(`reciever balance after: ${ethers.utils.formatEther(recieverBalanceAfter)}\n`)
-}
-
-main()
+main();
