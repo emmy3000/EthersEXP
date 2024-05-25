@@ -31,25 +31,27 @@ const main = async () => {
   ]);
 
   // Print initial account balances
+  console.log('\n\x1b[1m\x1b[34mInitial Account Balances:\x1b[0m');
   console.log(
-    '\n\n\x1b[1m\x1b[36mSender: \x1b[37m',
+    '\x1b[1m\x1b[36mSender: \x1b[37m',
     ethers.utils.formatEther(senderInitialBalance),
     '\x1b[33mETH'
   );
   console.log(
     '\x1b[1m\x1b[36mRecipient: \x1b[37m',
     ethers.utils.formatEther(recipientInitialBalance),
-    '\x1b[33mETH\n'
+    '\x1b[33mETH'
   );
 
   // Transfer ETH to the recipient's account
   const tx = await wallet.sendTransaction({
     to: recipientAccount,
-    value: ethers.utils.parseEther('0.025'),
+    value: ethers.utils.parseEther('0.00001'),
   });
 
   // Wait for the transaction to be mined
   await tx.wait();
+  console.log('\n\x1b[1m\x1b[34mTransaction Mined:\x1b[0m');
   console.log(tx);
 
   // Get balances after transfer
@@ -59,15 +61,16 @@ const main = async () => {
   ]);
 
   // Print updated account balances
+  console.log('\n\x1b[1m\x1b[34mUpdated Account Balances:\x1b[0m');
   console.log(
-    '\n\x1b[1m\x1b[36mSender: \x1b[37m',
+    '\x1b[1m\x1b[36mSender: \x1b[37m',
     ethers.utils.formatEther(senderUpdatedBalance),
     '\x1b[33mETH'
   );
   console.log(
     '\x1b[1m\x1b[36mRecipient: \x1b[37m',
     ethers.utils.formatEther(recipientUpdatedBalance),
-    '\x1b[33mETH\n\n'
+    '\x1b[33mETH'
   );
 };
 
