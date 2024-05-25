@@ -26,11 +26,49 @@ const wallet = new ethers.Wallet(privateKey, provider);
 
 // Main app logic
 const main = async () => {
-  // Send 0.025 Ether to accountB (ETH --> WEI)
+  // Show accountA and accountB balance before transfer
+  const senderBalanceBefore = await provider.getBalance(accountA);
+  const receiverBalanceBefore = await provider.getBalance(accountB);
+
+  console.log(
+    `\nSender balance before: ${ethers.utils.formatEther(senderBalanceBefore)}`
+  );
+  console.log(
+    `Recipient balance before: ${ethers.utils.formatEther(
+      receiverBalanceBefore
+    )}`
+  );
+
+  // Send 0.025 Ether to accountB
   const tx = await wallet.sendTransaction({
     to: accountB,
     value: ethers.utils.parseEther('0.025'),
   });
+
+  // Wait for the transaction to be mined
+  await tx.wait();
+
+  // Retrieve and display transaction details
+  console.log('\nTransaction Details:');
+  console.log(`- Transaction Hash: ${tx.hash}`);
+  console.log(`- From: ${tx.from}`);
+  console.log(`- To: ${tx.to}`);
+  console.log(`- Value: ${ethers.utils.formatEther(tx.value)} ETH`);
+  console.log(`- Gas Used: ${tx.gasUsed.toString()}`);
+  console.log(`- Status: ${tx.status === 1 ? 'Success' : 'Failed'}`);
+
+  // Show accountA and accountB balance after transfer
+  const senderBalanceAfter = await provider.getBalance(accountA);
+  const receiverBalanceAfter = await provider.getBalance(accountB);
+
+  console.log(
+    `\nSender balance after: ${ethers.utils.formatEther(senderBalanceAfter)}`
+  );
+  console.log(
+    `Recipient balance after: ${ethers.utils.formatEther(
+      receiverBalanceAfter
+    )}\n`
+  );
 };
 
 main();
