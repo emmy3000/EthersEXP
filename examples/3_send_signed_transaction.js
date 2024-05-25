@@ -16,7 +16,7 @@ const provider = new ethers.providers.JsonRpcProvider(
 const accountA = '0x8B78368464b516b93F6cB331B4515dB509aF6D06';
 
 // Define the recipient account
-const accountB = '0x455E5AA18469bC6ccEF49594645666C587A3a71B';
+const accountB = '0x0D2a409602031Ff5843e3ed4C39a4ce98295E071';
 
 // Define the sender's private key
 const privateKey = process.env.WALLET_PRIVATE_KEY;
@@ -31,43 +31,39 @@ const main = async () => {
   const receiverBalanceBefore = await provider.getBalance(accountB);
 
   console.log(
-    `\nSender balance before: ${ethers.utils.formatEther(senderBalanceBefore)}`
+    `\n\n\x1b[1m\x1b[36mSender balance before: \x1b[37m${ethers.utils.formatEther(
+      senderBalanceBefore
+    )}`
   );
   console.log(
-    `Recipient balance before: ${ethers.utils.formatEther(
+    `\x1b[1m\x1b[36mRecipient balance before: \x1b[37m${ethers.utils.formatEther(
       receiverBalanceBefore
-    )}`
+    )}\n`
   );
 
   // Send 0.025 Ether to accountB
   const tx = await wallet.sendTransaction({
     to: accountB,
-    value: ethers.utils.parseEther('0.025'),
+    value: ethers.utils.parseEther('0.001'),
   });
 
   // Wait for the transaction to be mined
   await tx.wait();
-
-  // Retrieve and display transaction details
-  console.log('\nTransaction Details:');
-  console.log(`- Transaction Hash: ${tx.hash}`);
-  console.log(`- From: ${tx.from}`);
-  console.log(`- To: ${tx.to}`);
-  console.log(`- Value: ${ethers.utils.formatEther(tx.value)} ETH`);
-  console.log(`- Gas Used: ${tx.gasUsed.toString()}`);
-  console.log(`- Status: ${tx.status === 1 ? 'Success' : 'Failed'}`);
+  console.log(tx);
 
   // Show accountA and accountB balance after transfer
   const senderBalanceAfter = await provider.getBalance(accountA);
   const receiverBalanceAfter = await provider.getBalance(accountB);
 
   console.log(
-    `\nSender balance after: ${ethers.utils.formatEther(senderBalanceAfter)}`
+    `\n\x1b[1m\x1b[36mSender balance after: \x1b[37m${ethers.utils.formatEther(
+      senderBalanceAfter
+    )}`
   );
   console.log(
-    `Recipient balance after: ${ethers.utils.formatEther(
+    `\x1b[1m\x1b[36mRecipient balance after: \x1b[37m${ethers.utils.formatEther(
       receiverBalanceAfter
-    )}\n`
+    )}\n\n`
   );
 };
 
