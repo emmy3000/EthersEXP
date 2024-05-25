@@ -46,7 +46,7 @@ const main = async () => {
   // Transfer ETH to the recipient's account
   const tx = await wallet.sendTransaction({
     to: recipientAccount,
-    value: ethers.utils.parseEther('0.00001'),
+    value: ethers.utils.parseEther('0.025'),
   });
 
   // Wait for the transaction to be mined
