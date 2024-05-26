@@ -35,6 +35,17 @@ const address = '0x779877A7B0D9E8603169DdbD7836e478b4624789';
 const contract = new ethers.Contract(address, ERC20_ABI, provider);
 
 // Main app logic
-const main = async () => {};
+const main = async () => {
+  // Connect contract to wallet for signing transactions
+  const walletConnectedContract = contract.connect(wallet);
+
+  // Transfer 'balance' to 'recipientAccount' via connected contract
+  const tx = await walletConnectContract.transfer(recipientAccount, balance);
+
+  // Wait for the transaction to be mined
+  await tx.wait();
+  console.log('\nTransaction Mined:');
+  console.log(tx);
+};
 
 main();
