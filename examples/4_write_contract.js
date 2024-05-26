@@ -36,6 +36,13 @@ const contract = new ethers.Contract(address, ERC20_ABI, provider);
 
 // Main app logic
 const main = async () => {
+  // Get the Chainlink Token balance from the sender's account
+  const senderInitialBalance = await contract.balanceOf(senderAccount);
+
+  // Log the sender's initial balance
+  console.log(`\nReading from ${address}`);
+  console.log(`Sender Initial Balance: ${senderInitialBalance}`);
+
   // Connect contract to wallet for signing transactions
   const walletConnectedContract = contract.connect(wallet);
 
@@ -46,6 +53,17 @@ const main = async () => {
   await tx.wait();
   console.log('\nTransaction Mined:');
   console.log(tx);
+
+  // Get the Chainlink Token balances from the sender and recipient accounts
+  const [senderUpdatedBalance, recipientUpdatedBalance] = await Promise.all([
+    contract.balanceOf(senderAccount),
+    contract.balanceOf(recipientAccount),
+  ]);
+
+  // Log the sender and recipient's updated balances
+  console.log(`\nReading from ${address}`);
+  console.log(`Sender Updated Balance: ${senderUpdatedBalance}`);
+  console.log(`Recipient Updated Balance: ${recipientUpdatedBalance}\n`);
 };
 
 main();
