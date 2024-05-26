@@ -22,7 +22,7 @@ const privateKey = process.env.WALLET_PRIVATE_KEY;
 // Create Wallet instance with private key and provider
 const wallet = new ethers.Wallet(privateKey, provider);
 
-// Define the Chainlink smart contract's ABI object.
+// Define the Chainlink smart contract's ABI
 const ERC20_ABI = [
   'function balanceOf(address) view returns (uint)',
   'function transfer(address to, uint amount) returns (bool)',
@@ -31,36 +31,34 @@ const ERC20_ABI = [
 // Define the Chainlink Token address
 const address = '0x779877A7B0D9E8603169DdbD7836e478b4624789';
 
-// Define an instance of the Chainlink smart contract
+// Create Chainlink contract instance
 const contract = new ethers.Contract(address, ERC20_ABI, provider);
 
-// Main app logic
+// Main application logic
 const main = async () => {
-  // Get the Chainlink Token balance from the sender's account
+  // Get sender's initial balance
   const senderInitialBalance = await contract.balanceOf(senderAccount);
-
-  // Log the sender's initial balance
   console.log(`\nReading from ${address}`);
   console.log(`Sender Initial Balance: ${senderInitialBalance}`);
 
   // Connect contract to wallet for signing transactions
   const walletConnectedContract = contract.connect(wallet);
 
-  // Transfer 'balance' to 'recipientAccount' via connected contract
-  const tx = await walletConnectContract.transfer(recipientAccount, balance);
-
-  // Wait for the transaction to be mined
+  // Transfer balance to recipient account
+  const tx = await walletConnectedContract.transfer(
+    recipientAccount,
+    senderInitialBalance
+  );
   await tx.wait();
-  console.log('\nTransaction Mined:');
-  console.log(tx);
+  console.log('\nTransaction Mined:', tx);
 
-  // Get the Chainlink Token balances from the sender and recipient accounts
+  // Get updated balances for sender and recipient
   const [senderUpdatedBalance, recipientUpdatedBalance] = await Promise.all([
     contract.balanceOf(senderAccount),
     contract.balanceOf(recipientAccount),
   ]);
 
-  // Log the sender and recipient's updated balances
+  // Log updated balances
   console.log(`\nReading from ${address}`);
   console.log(`Sender Updated Balance: ${senderUpdatedBalance}`);
   console.log(`Recipient Updated Balance: ${recipientUpdatedBalance}\n`);
